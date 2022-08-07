@@ -24,3 +24,9 @@ export const Title = styled.Text`
   font-weight: bold;
   margin-left: 5px;
 `;
+
+export const GoBackButton = styled.TouchableOpacity`
+  position: absolute;
+  left: 15px;
+  top: ${(60 + StatusBar.currentHeight) / 2}px;
+`;

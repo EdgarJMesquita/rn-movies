@@ -1,5 +1,4 @@
 import { Background } from '../../components/Background';
-import { Header } from '../../components/Header';
 import { Section } from '../../components/Section';
 import { Container, Scroll } from './styles';
 
@@ -7,7 +6,6 @@ export function MoviesList() {
   return (
     <Background>
       <Container>
-        <Header />
         <Scroll>
           <Section title="Populares" category="popular" />
           <Section title="Trending" category="trending" />

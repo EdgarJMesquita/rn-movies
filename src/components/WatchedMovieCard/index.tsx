@@ -1,18 +1,19 @@
-import { Image } from 'react-native';
+import { Alert, Image } from 'react-native';
 import useSWR from 'swr';
 import { omdbapiFetcher } from '../../service/omdbapi';
 import { Loading } from '../Loading';
 import { Button, LoadingContainer } from './styles';
 import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = {
   data: MoviePopular;
 };
 
-export function Card({ data }: Props) {
+export function WatchedMovieCard({ data }: Props) {
   const id = data?.movie?.ids?.imdb || data?.ids?.imdb || data?.show?.ids?.imdb;
   const { data: omdb } = useSWR<OMDBMovie>(`?i=${id}`, omdbapiFetcher);
-
   const navigation = useNavigation();
 
   return (
@@ -25,34 +26,10 @@ export function Card({ data }: Props) {
       {omdb && (
         <Image
           source={{ uri: omdb.Poster }}
-          style={{ width: '100%', height: 225 }}
+          style={{ width: '100%', height: 250 }}
           resizeMode="cover"
         />
       )}
     </Button>
   );
 }
-/* export function Card({ data }: Props) {
-  const omdb = useSWR<OMDBMovie>(`?i=${data.ids.imdb}`, omdbapiFetcher);
-
-  return (
-    <Container>
-      {!omdb.data && (
-        <LoadingContainer>
-          <Loading />
-        </LoadingContainer>
-      )}
-      {omdb.data && (
-        <Image
-          source={{ uri: omdb.data.Poster }}
-          style={{ width: '100%', minHeight: 470 }}
-          resizeMode="contain"
-        />
-      )}
-      <Footer>
-        <Title>{data.title}</Title>
-        <Description>{omdb?.data?.Plot || 'Carregando'}</Description>
-      </Footer>
-    </Container>
-  );
-} */

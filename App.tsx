@@ -1,8 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { LogBox, StyleSheet, View } from 'react-native';
+import { LogBox } from 'react-native';
 import { Provider } from 'react-redux';
-import { MoviesList } from './src/screens/MoviesList';
 import { store } from './src/store';
 import { useFonts } from 'expo-font';
 import {
@@ -12,6 +11,7 @@ import {
   Inter_400Regular,
 } from '@expo-google-fonts/inter';
 import { AppLoading } from './src/components/AppLoading';
+import { Routes } from './src/routes';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -27,22 +27,11 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <StatusBar style="light" />
-        <MoviesList />
-      </View>
+      <StatusBar style="light" />
+      <Routes />
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 LogBox.ignoreLogs([
   `ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.`,
