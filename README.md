@@ -15,3 +15,21 @@
 6. https://www.npmjs.com/package/jest, para testes unitários de lógica.
 
 7. https://www.npmjs.com/package/@testing-library/react-native, para testes unitários de componentes.
+
+## TODO:
+
+[x] Store e Actions do redux.
+
+[x] Integração com Trakt para listagem de filmes e séries.
+
+[x] Integração com OMDB para busca de posters.
+
+[x] Refatoração na listagem com categorias e scroll horizontal.
+
+[x] Adição de série nas listagem.
+
+[] Criar testes unitários de componentes.
+
+[] Criar testes unitários de lógica.
+
+[] Criar tela de detalhes.
