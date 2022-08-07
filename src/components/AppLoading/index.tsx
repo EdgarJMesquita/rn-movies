@@ -7,7 +7,7 @@ export function AppLoading() {
     <Container>
       <StatusBar translucent />
       <Section>
-        <Loading size={70} />
+        <Loading size={55} />
         <Title>Filmes</Title>
       </Section>
     </Container>

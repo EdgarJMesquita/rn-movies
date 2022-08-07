@@ -14,7 +14,7 @@ export function Loading({ size = 30, style }: Props) {
       source={LoadingMovie}
       autoPlay
       loop
-      style={[{ width: size, height: size }, style]}
+      style={[{ width: size, height: size, marginLeft: -3 }, style]}
     />
   );
 }

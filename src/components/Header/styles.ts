@@ -24,6 +24,7 @@ export const Icon = styled.Image.attrs({
 } as ImageProps)`
   height: 24px;
   width: 24px;
+  margin-right: 5px;
 `;
 
 export const Title = styled.Text`

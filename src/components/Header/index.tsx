@@ -14,7 +14,6 @@ export function Header({ onGoBackPress }: Props) {
           <Feather name="arrow-left" size={30} color={theme.colors.title} />
         </GoBackButton>
       )}
-      {/* <MovieIcon testID="header-icon" name="movie-roll" /> */}
       <Icon />
       <Title testID="header-title">Filmes</Title>
     </Container>

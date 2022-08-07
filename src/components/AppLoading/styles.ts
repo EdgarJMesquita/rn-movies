@@ -17,10 +17,9 @@ export const Section = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: 40px;
+  font-size: 43px;
   color: ${theme.colors.title};
-  font-weight: bold;
-  margin-left: 5px;
-  font-family: ${theme.fonts.bold};
-  letter-spacing: 2px;
+  margin-left: 3px;
+  font-family: ${theme.fonts.medium};
+  margin-bottom: 2px;
 `;
