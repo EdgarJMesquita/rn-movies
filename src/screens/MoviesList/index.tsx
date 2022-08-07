@@ -6,7 +6,7 @@ export function MoviesList() {
   return (
     <Background>
       <Container>
-        <Scroll>
+        <Scroll testID="scroll">
           <Section title="Populares" category="popular" />
           <Section title="Trending" category="trending" />
           <Section title="Top 10 recomendados" category="recommended/weekly" />

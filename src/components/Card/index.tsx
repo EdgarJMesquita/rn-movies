@@ -16,7 +16,10 @@ export function Card({ data }: Props) {
   const navigation = useNavigation();
 
   return (
-    <Button onPress={() => navigation.navigate('MovieDetails', { data })}>
+    <Button
+      onPress={() => navigation.navigate('MovieDetails', { data })}
+      testID="card"
+    >
       {!omdb && (
         <LoadingContainer>
           <Loading />
@@ -27,32 +30,9 @@ export function Card({ data }: Props) {
           source={{ uri: omdb.Poster }}
           style={{ width: '100%', height: 225 }}
           resizeMode="cover"
+          testID="image"
         />
       )}
     </Button>
   );
 }
-/* export function Card({ data }: Props) {
-  const omdb = useSWR<OMDBMovie>(`?i=${data.ids.imdb}`, omdbapiFetcher);
-
-  return (
-    <Container>
-      {!omdb.data && (
-        <LoadingContainer>
-          <Loading />
-        </LoadingContainer>
-      )}
-      {omdb.data && (
-        <Image
-          source={{ uri: omdb.data.Poster }}
-          style={{ width: '100%', minHeight: 470 }}
-          resizeMode="contain"
-        />
-      )}
-      <Footer>
-        <Title>{data.title}</Title>
-        <Description>{omdb?.data?.Plot || 'Carregando'}</Description>
-      </Footer>
-    </Container>
-  );
-} */

@@ -23,9 +23,15 @@ describe('Header', () => {
     expect(title.props.style[0].color).toBe('#FFFFFF');
   });
 
-  it('shoud be title weight bold', () => {
+  it('should be title weight bold', () => {
     const { getByTestId } = render(<Header />);
     const title = getByTestId('header-title');
     expect(title.props.style[0].fontWeight).toBe('bold');
+  });
+
+  it('should render goBackButton when exists onGoBackPress', () => {
+    const { getByTestId } = render(<Header onGoBackPress={() => {}} />);
+    const goBackButton = getByTestId('goBackButton');
+    expect(goBackButton).toBeTruthy();
   });
 });

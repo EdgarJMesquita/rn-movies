@@ -29,7 +29,7 @@ export const Title = styled.Text`
   font-size: 25px;
   font-weight: bold;
   text-align: center;
-  margin: 5px 0;
+  margin: 15px 0;
   color: ${theme.colors.title};
   font-family: ${theme.fonts.bold};
 `;

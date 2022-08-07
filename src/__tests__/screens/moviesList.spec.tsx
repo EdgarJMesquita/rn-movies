@@ -8,9 +8,31 @@ import { store } from '../../store';
 const wrapper = ({ children }) => <Provider store={store}>{children}</Provider>;
 
 describe('MoviesList', () => {
-  test('header should exist header', () => {
+  it('should exist popular category', () => {
+    const { getByText } = render(<MoviesList />, { wrapper });
+    const categoryTitle = getByText('Populares');
+    expect(categoryTitle).toBeTruthy();
+  });
+
+  it('should exist trending category', () => {
+    const { getByText } = render(<MoviesList />, { wrapper });
+    const categoryTitle = getByText('Trending');
+    expect(categoryTitle).toBeTruthy();
+  });
+  it('should exist recommended category', () => {
+    const { getByText } = render(<MoviesList />, { wrapper });
+    const categoryTitle = getByText('Top 10 recomendados');
+    expect(categoryTitle).toBeTruthy();
+  });
+  it('should exist most watched category', () => {
+    const { getByText } = render(<MoviesList />, { wrapper });
+    const categoryTitle = getByText('Mais assistidos');
+    expect(categoryTitle).toBeTruthy();
+  });
+
+  it('should exists scrollView', () => {
     const { getByTestId } = render(<MoviesList />, { wrapper });
-    const header = getByTestId('header');
-    expect(header).toBeTruthy();
+    const scroll = getByTestId('scroll');
+    expect(scroll).toBeTruthy();
   });
 });

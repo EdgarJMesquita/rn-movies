@@ -1,9 +1,22 @@
 {
   "expo": {
-    "name": "movies",
+    "name": "Filmes",
     "slug": "movies",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"],
-    "android": {}
+    "jsEngine": "hermes",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0f79af"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#0f79af"
+      },
+      "package": "com.edgarjonas.movies"
+    },
+    "assetBundlePatterns": ["**/*"]
   }
 }

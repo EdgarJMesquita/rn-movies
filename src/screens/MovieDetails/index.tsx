@@ -92,7 +92,7 @@ export function MovieDetails({ route }: MovieDetailsScreenProps) {
             <Label>Metacritic: </Label>
             <Text>{omdb?.Ratings[2]?.Value || 'N/A'}</Text>
           </Section>
-          {console.log(state.watchedList.movies.map((item) => item.title))}
+
           <WatchButton
             onPress={handleWatchedList}
             watched={

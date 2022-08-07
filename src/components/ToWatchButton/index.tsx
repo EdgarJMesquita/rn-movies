@@ -9,13 +9,13 @@ type Props = TouchableHighlightProps & {
 
 export function ToWatchButton({ watched, ...props }: Props) {
   return (
-    <Button watched={watched} {...props}>
+    <Button watched={watched} {...props} testID="button">
       <Entypo
         name={watched ? 'minus' : 'plus'}
         size={24}
         color={theme.colors.title}
       />
-      <Title watched={watched}>
+      <Title watched={watched} testID="title">
         {watched ? 'Remover de assistir' : 'Adicionar para assistir'}
       </Title>
     </Button>
