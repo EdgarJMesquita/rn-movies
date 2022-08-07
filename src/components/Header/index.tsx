@@ -1,4 +1,4 @@
-import { Container, GoBackButton, MovieIcon, Title } from './styles';
+import { Container, GoBackButton, Icon, MovieIcon, Title } from './styles';
 import { Feather } from '@expo/vector-icons';
 import { theme } from '../../global/theme';
 
@@ -14,7 +14,8 @@ export function Header({ onGoBackPress }: Props) {
           <Feather name="arrow-left" size={30} color={theme.colors.title} />
         </GoBackButton>
       )}
-      <MovieIcon testID="header-icon" name="movie-roll" />
+      {/* <MovieIcon testID="header-icon" name="movie-roll" /> */}
+      <Icon />
       <Title testID="header-title">Filmes</Title>
     </Container>
   );

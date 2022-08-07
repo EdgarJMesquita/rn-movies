@@ -93,20 +93,21 @@ export function MovieDetails({ route }: MovieDetailsScreenProps) {
             <Text>{omdb?.Ratings[2]?.Value || 'N/A'}</Text>
           </Section>
 
-          <WatchButton
-            onPress={handleWatchedList}
+          <ToWatchButton
+            onPress={handleToWatchList}
             watched={
-              !!state.watchedList?.movies?.some(
+              !!state?.toWatchList?.movies?.some(
                 (item) =>
                   title ===
                   (item?.title || item?.movie?.title || item?.show?.title),
               )
             }
           />
-          <ToWatchButton
-            onPress={handleToWatchList}
+
+          <WatchButton
+            onPress={handleWatchedList}
             watched={
-              !!state?.toWatchList?.movies?.some(
+              !!state.watchedList?.movies?.some(
                 (item) =>
                   title ===
                   (item?.title || item?.movie?.title || item?.show?.title),

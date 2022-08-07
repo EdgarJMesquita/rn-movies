@@ -1,5 +1,5 @@
 import { Background } from '../../components/Background';
-import { Container, Scroll } from './styles';
+import { Container, Scroll, Title } from './styles';
 import { useAppSelector } from '../../store/hooks';
 import { WatchedMovieCard } from '../../components/WatchedMovieCard';
 import { EmptyMessage } from '../../components/EmptyMessage';
@@ -10,6 +10,7 @@ export function WatchedList() {
   return (
     <Background>
       <Container>
+        <Title>Assistidos</Title>
         {watchedMovies.movies.length > 0 && (
           <Scroll>
             {watchedMovies.movies.map((movie, key) => (

@@ -6,11 +6,8 @@ export const Button = styled.TouchableOpacity.attrs({
   activityOpacity: 0.8,
 } as TouchableOpacityProps)`
   width: 150px;
-  //background-color: ${theme.colors.white};
 
   border-radius: 15px;
-
-  //margin-bottom: 20px;
 
   elevation: 0.5;
 

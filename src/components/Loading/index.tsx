@@ -1,7 +1,7 @@
 import AnimatedLottieView, {
   AnimatedLottieViewProps,
 } from 'lottie-react-native';
-import LoadingMovie from '../../assets/animations/moveloading.json';
+import LoadingMovie from '../../assets/animations/loading.json';
 
 type Props = {
   size?: number;

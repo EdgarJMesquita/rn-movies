@@ -1,4 +1,4 @@
-package com.movies;
+package com.edgarjonas.movies;
 
 import android.os.Build;
 import android.os.Bundle;

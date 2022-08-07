@@ -4,7 +4,7 @@ import { theme } from '../../global/theme';
 export const Container = styled.View`
   flex: 1;
   width: 100%;
-  background-color: ${theme.colors.black};
+  background-color: ${theme.colors.background};
 
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@ export const Section = styled.View`
 
 export const Title = styled.Text`
   font-size: 40px;
-  color: ${theme.colors.white};
+  color: ${theme.colors.title};
   font-weight: bold;
   margin-left: 5px;
   font-family: ${theme.fonts.bold};

@@ -1,3 +1,4 @@
+import { ScrollViewProps } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -10,7 +11,8 @@ export const Scroll = styled.ScrollView.attrs({
     paddingTop: 20,
     paddingBottom: 30,
   },
-})`
+  fadingEdgeLength: 100,
+} as ScrollViewProps)`
   flex: 1;
   width: 100%;
 `;

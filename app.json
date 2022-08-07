@@ -8,15 +8,18 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#0f79af"
+      "backgroundColor": "#0F171E"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#0f79af"
+        "backgroundColor": "#0F171E"
       },
       "package": "com.edgarjonas.movies"
     },
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "bundleIdentifier": "com.edgarjonas.movies"
+    }
   }
 }

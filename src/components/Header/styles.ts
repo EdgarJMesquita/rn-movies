@@ -1,7 +1,8 @@
-import { StatusBar } from 'react-native';
+import { ImageProps, StatusBar } from 'react-native';
 import styled from 'styled-components/native';
 import { theme } from '../../global/theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Movie from '../../assets/film.png';
 
 export const Container = styled.View`
   width: 100%;
@@ -15,13 +16,20 @@ export const Container = styled.View`
 `;
 
 export const MovieIcon = styled(MaterialCommunityIcons).attrs({ size: 24 })`
-  color: ${theme.colors.white};
+  color: ${theme.colors.title};
+`;
+
+export const Icon = styled.Image.attrs({
+  source: Movie,
+} as ImageProps)`
+  height: 24px;
+  width: 24px;
 `;
 
 export const Title = styled.Text`
-  font-size: 18px;
-  color: ${theme.colors.white};
-  font-weight: bold;
+  font-size: 20px;
+  color: ${theme.colors.title};
+  font-family: ${theme.fonts.bold};
   margin-left: 5px;
 `;
 
