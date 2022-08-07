@@ -16,7 +16,7 @@ export const Button = styled.TouchableOpacity<Props>`
   align-items: center;
 
   background-color: ${({ watched }) =>
-    watched ? 'transparent' : theme.colors.button};
+    watched ? 'transparent' : theme.colors.primary};
 
   border-radius: 10px;
 
@@ -24,7 +24,7 @@ export const Button = styled.TouchableOpacity<Props>`
 
   border-width: 2px;
   border-color: ${({ watched }) =>
-    watched ? theme.colors.text : theme.colors.button};
+    watched ? theme.colors.text : theme.colors.primary};
 `;
 
 export const Title = styled.Text<Props>`
