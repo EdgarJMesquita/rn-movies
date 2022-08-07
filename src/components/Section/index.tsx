@@ -16,7 +16,7 @@ export function Section({ title, category }: Props) {
 
   return (
     <Container>
-      <Title>{title}</Title>
+      <Title testID="title">{title}</Title>
       <FlatList
         testID="movies"
         data={state?.movies}
