@@ -26,7 +26,7 @@
 
 [x] Refatoração na listagem com categorias e scroll horizontal.
 
-[x] Adição de série nas listagem.
+[x] Adição de séries nas listagem.
 
 [] Criar testes unitários de componentes.
 

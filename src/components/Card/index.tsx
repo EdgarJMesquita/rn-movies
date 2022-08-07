@@ -10,18 +10,18 @@ type Props = {
 
 export function Card({ data }: Props) {
   const id = data?.movie?.ids?.imdb || data?.ids?.imdb || data?.show?.ids?.imdb;
-  const omdb = useSWR<OMDBMovie>(`?i=${id}`, omdbapiFetcher);
+  const { data: omdb } = useSWR<OMDBMovie>(`?i=${id}`, omdbapiFetcher);
 
   return (
     <Container>
-      {!omdb.data && (
+      {!omdb && (
         <LoadingContainer>
           <Loading />
         </LoadingContainer>
       )}
-      {omdb.data && (
+      {omdb && (
         <Image
-          source={{ uri: omdb.data.Poster }}
+          source={{ uri: omdb.Poster }}
           style={{ width: '100%', height: 225 }}
           resizeMode="cover"
         />
