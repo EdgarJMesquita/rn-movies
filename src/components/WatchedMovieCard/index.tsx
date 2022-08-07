@@ -1,11 +1,9 @@
-import { Alert, Image } from 'react-native';
+import { Image } from 'react-native';
 import useSWR from 'swr';
 import { omdbapiFetcher } from '../../service/omdbapi';
 import { Loading } from '../Loading';
 import { Button, LoadingContainer } from './styles';
 import { useNavigation } from '@react-navigation/native';
-import { useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = {
   data: MoviePopular;

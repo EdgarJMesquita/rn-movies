@@ -1,9 +1,11 @@
 import { applyMiddleware, legacy_createStore } from 'redux';
 import promise from 'redux-promise-middleware';
-import { init, load_watched } from './actions';
+import { init, load_to_watch, load_watched } from './actions';
 import thunk from 'redux-thunk';
 
 // Não tive certeza se poderia usar @reduxjs/toolkit
+// Só um disclaimer aqui, esta é a segunda vez que utilizo redux
+// A API de Contexto do react sempre atendeu aos meus projetos tanto pessoais quanto profissionais.
 
 type InitialState = {
   [key: string]: {
@@ -11,7 +13,12 @@ type InitialState = {
     page: number;
     loading: boolean;
   };
-  watched: {
+  watchedList: {
+    movies: MoviePopular[];
+    page: number;
+    loading: boolean;
+  };
+  toWatchList: {
     movies: MoviePopular[];
     page: number;
     loading: boolean;
@@ -19,7 +26,12 @@ type InitialState = {
 };
 
 const initialState: InitialState = {
-  watched: {
+  watchedList: {
+    movies: [],
+    page: 1,
+    loading: false,
+  },
+  toWatchList: {
     movies: [],
     page: 1,
     loading: false,
@@ -51,7 +63,9 @@ function reducer(state = initialState, action): InitialState {
         },
       };
     case 'SAVE_WATCHED':
-      return { ...state, watched: action.payload };
+      return { ...state, watchedList: action.payload };
+    case 'SAVE_TO_WATCH':
+      return { ...state, toWatchList: action.payload };
     default:
       return state;
   }
@@ -67,6 +81,7 @@ export { store };
 
 store.dispatch(init);
 store.dispatch(load_watched);
+store.dispatch(load_to_watch);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

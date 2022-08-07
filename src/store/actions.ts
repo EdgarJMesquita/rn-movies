@@ -1,6 +1,8 @@
 import { traktapi } from '../service/traktapi';
+import { loadToWatchListFromAsyncStorage } from '../utils/loadToWatchListFromAsyncStorage';
 import { loadWatchedFromAsyncStorage } from '../utils/loadWatchedFromAsyncStorage';
 import { random } from '../utils/random';
+import { saveToWatchListToAsyncStorage } from '../utils/saveToWatchListToAsyncStorage';
 import { saveWatchedToAsyncStorage } from '../utils/saveWatchedToAsyncStorage';
 
 // Função para carregamento inicial das categorias tanto filmes quanto séries.
@@ -70,4 +72,16 @@ export const load_watched = async (dispatch) => {
 export const save_watched = (movie: MoviePopular) => async (dispatch) => {
   const watchedMovies = await saveWatchedToAsyncStorage(movie);
   dispatch({ type: 'SAVE_WATCHED', payload: { movies: watchedMovies } });
+};
+
+// Carrega assistidos do armazenamento do dispositivo
+export const load_to_watch = async (dispatch) => {
+  const watchedMovies = await loadToWatchListFromAsyncStorage();
+  dispatch({ type: 'SAVE_TO_WATCH', payload: { movies: watchedMovies } });
+};
+
+// Salva filme/série assistido para armazenamento do dispositivo
+export const save_to_watch = (movie: MoviePopular) => async (dispatch) => {
+  const watchedMovies = await saveToWatchListToAsyncStorage(movie);
+  dispatch({ type: 'SAVE_TO_WATCH', payload: { movies: watchedMovies } });
 };

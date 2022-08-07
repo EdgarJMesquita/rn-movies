@@ -7,6 +7,7 @@ import { Platform } from 'react-native';
 import { Label } from '../components/Label';
 import { AppRoutes } from './app.routes';
 import { WatchedList } from '../screens/WatchedList';
+import { ToWatchList } from '../screens/ToWatchList';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -18,7 +19,6 @@ export function TabRoutes() {
         headerShown: false,
         tabBarActiveTintColor: theme.colors.primary,
         tabBarInactiveTintColor: theme.colors.title,
-        tabBarLabelPosition: 'beside-icon',
         tabBarStyle: {
           paddingVertical: Platform.OS === 'ios' ? 20 : 0,
           borderTopColor: 'transparent',
@@ -27,6 +27,7 @@ export function TabRoutes() {
         tabBarIconStyle: {
           marginRight: 15,
         },
+        tabBarShowLabel: false,
       }}
     >
       <Screen
@@ -44,7 +45,25 @@ export function TabRoutes() {
         }}
       />
       <Screen
-        name="Watched"
+        name="ToWatchList"
+        component={ToWatchList}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="movie-open-play"
+              size={25}
+              color={color}
+            />
+          ),
+          tabBarLabel: ({ color }) => (
+            <Label color={color}>Para assistir</Label>
+          ),
+          headerShown: true,
+          header: () => <Header />,
+        }}
+      />
+      <Screen
+        name="WatchedList"
         component={WatchedList}
         options={{
           tabBarIcon: ({ color }) => (

@@ -7,7 +7,7 @@ type Props = TouchableHighlightProps & {
   watched: boolean;
 };
 
-export function WatchedButton({ watched, ...props }: Props) {
+export function WatchButton({ watched, ...props }: Props) {
   return (
     <Button watched={watched} {...props}>
       <Entypo
@@ -15,7 +15,9 @@ export function WatchedButton({ watched, ...props }: Props) {
         size={24}
         color={theme.colors.title}
       />
-      <Title watched={watched}>{watched ? 'Assistido' : 'Assistido'}</Title>
+      <Title watched={watched}>
+        {watched ? 'Remover de assistido' : 'Adicionar para assistido'}
+      </Title>
     </Button>
   );
 }

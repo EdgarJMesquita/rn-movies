@@ -12,28 +12,35 @@ import {
   Title,
 } from './styles';
 import { MovieDetailsScreenProps } from '../../routes/types';
-import { WatchedButton } from '../../components/WatchedButton';
+import { WatchButton } from '../../components/WatchButton';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { save_watched } from '../../store/actions';
+import { save_to_watch, save_watched } from '../../store/actions';
+import { ToWatchButton } from '../../components/ToWatchButton';
 
 export function MovieDetails({ route }: MovieDetailsScreenProps) {
   const { data } = route.params;
   const id = data?.movie?.ids?.imdb || data?.ids?.imdb || data?.show?.ids?.imdb;
   const { data: omdb } = useSWR<OMDBMovie>(`?i=${id}`, omdbapiFetcher);
 
-  const watchedList = useAppSelector((state) => state.watched);
+  const state = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
-  function handleAddToWatchedList() {
+  function handleWatchedList() {
     dispatch(save_watched(data));
   }
+
+  function handleToWatchList() {
+    dispatch(save_to_watch(data));
+  }
+
+  const title = data?.title || data?.movie?.title || data?.show?.title;
 
   return (
     <Background>
       <Container>
         <Scroll>
           {omdb && <Poster source={{ uri: omdb.Poster }} />}
-          <Title>{data?.title}</Title>
+          <Title>{title}</Title>
           <Description>{omdb?.Plot}</Description>
 
           <Section>
@@ -85,11 +92,26 @@ export function MovieDetails({ route }: MovieDetailsScreenProps) {
             <Label>Metacritic: </Label>
             <Text>{omdb?.Ratings[2]?.Value || 'N/A'}</Text>
           </Section>
-          <WatchedButton
-            onPress={handleAddToWatchedList}
-            watched={watchedList?.movies?.some(
-              (item) => item.title === data.title,
-            )}
+          {console.log(state.watchedList.movies.map((item) => item.title))}
+          <WatchButton
+            onPress={handleWatchedList}
+            watched={
+              !!state.watchedList?.movies?.some(
+                (item) =>
+                  title ===
+                  (item?.title || item?.movie?.title || item?.show?.title),
+              )
+            }
+          />
+          <ToWatchButton
+            onPress={handleToWatchList}
+            watched={
+              !!state?.toWatchList?.movies?.some(
+                (item) =>
+                  title ===
+                  (item?.title || item?.movie?.title || item?.show?.title),
+              )
+            }
           />
         </Scroll>
       </Container>

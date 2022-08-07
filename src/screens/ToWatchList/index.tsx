@@ -4,21 +4,21 @@ import { useAppSelector } from '../../store/hooks';
 import { WatchedMovieCard } from '../../components/WatchedMovieCard';
 import { EmptyMessage } from '../../components/EmptyMessage';
 
-export function WatchedList() {
-  const watchedMovies = useAppSelector((state) => state.watchedList);
+export function ToWatchList() {
+  const toWatchMovies = useAppSelector((state) => state.toWatchList);
 
   return (
     <Background>
       <Container>
-        {watchedMovies.movies.length > 0 && (
+        {toWatchMovies.movies.length > 0 && (
           <Scroll>
-            {watchedMovies.movies.map((movie, key) => (
+            {toWatchMovies.movies.map((movie, key) => (
               <WatchedMovieCard data={movie} key={key} />
             ))}
           </Scroll>
         )}
-        {watchedMovies.movies.length === 0 && (
-          <EmptyMessage message="Você ainda não assistiu nenhum filme/série" />
+        {toWatchMovies.movies.length === 0 && (
+          <EmptyMessage message="Você ainda não adicionou a esta lista" />
         )}
       </Container>
     </Background>
