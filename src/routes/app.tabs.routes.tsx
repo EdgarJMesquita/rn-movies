@@ -23,6 +23,7 @@ export function TabRoutes() {
           paddingVertical: Platform.OS === 'ios' ? 20 : 0,
           borderTopColor: 'transparent',
           backgroundColor: theme.colors.header,
+          height: 50,
         },
         tabBarIconStyle: {
           marginRight: 15,
@@ -36,11 +37,6 @@ export function TabRoutes() {
         options={{
           tabBarIcon: ({ color }) => (
             <Entypo name="home" size={24} color={color} />
-          ),
-          tabBarLabel: ({ color }) => (
-            <Label color={color} style={{ marginTop: 3 }}>
-              Início
-            </Label>
           ),
         }}
       />
@@ -73,7 +69,6 @@ export function TabRoutes() {
               color={color}
             />
           ),
-          tabBarLabel: ({ color }) => <Label color={color}>Assistidos</Label>,
           headerShown: true,
           header: () => <Header />,
         }}

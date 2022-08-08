@@ -8,12 +8,12 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#0F171E"
+      "backgroundColor": "#0f171e"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#0F171E"
+        "backgroundColor": "#0f171e"
       },
       "package": "com.edgarjonas.movies"
     },

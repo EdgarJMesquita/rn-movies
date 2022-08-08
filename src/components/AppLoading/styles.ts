@@ -2,12 +2,19 @@ import styled from 'styled-components/native';
 import { theme } from '../../global/theme';
 
 export const Container = styled.View`
-  flex: 1;
-  width: 100%;
+  /* flex: 1;
+  width: 100%; */
   background-color: ${theme.colors.background};
 
   justify-content: center;
   align-items: center;
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 `;
 
 export const Section = styled.View`
