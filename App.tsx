@@ -5,34 +5,34 @@ import { Provider } from 'react-redux';
 import { store } from './src/store';
 import { useFonts } from 'expo-font';
 import {
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_400Regular,
+	Inter_500Medium,
+	Inter_600SemiBold,
+	Inter_700Bold,
+	Inter_400Regular,
 } from '@expo-google-fonts/inter';
 import { AppLoading } from './src/components/AppLoading';
 import { Routes } from './src/routes';
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_400Regular,
-  });
+	let [fontsLoaded] = useFonts({
+		Inter_500Medium,
+		Inter_600SemiBold,
+		Inter_700Bold,
+		Inter_400Regular,
+	});
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
+	if (!fontsLoaded) {
+		return <AppLoading />;
+	}
 
-  return (
-    <Provider store={store}>
-      <StatusBar style="light" />
-      <Routes />
-    </Provider>
-  );
+	return (
+		<Provider store={store}>
+			<StatusBar style="light" />
+			<Routes />
+		</Provider>
+	);
 }
 
 LogBox.ignoreLogs([
-  `ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.`,
+	`ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from 'deprecated-react-native-prop-types'.`,
 ]);

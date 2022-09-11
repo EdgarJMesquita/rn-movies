@@ -1,25 +1,25 @@
 {
-  "expo": {
-    "name": "Filmes",
-    "slug": "movies",
-    "version": "1.0.0",
-    "jsEngine": "hermes",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#0f171e"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#0f171e"
-      },
-      "package": "com.edgarjonas.movies"
-    },
-    "assetBundlePatterns": ["**/*"],
-    "ios": {
-      "bundleIdentifier": "com.edgarjonas.movies"
-    }
-  }
+	"expo": {
+		"name": "Filmes",
+		"slug": "movies",
+		"version": "1.0.0",
+		"jsEngine": "hermes",
+		"icon": "./assets/icon.png",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#0f171e"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/icon.png",
+				"backgroundColor": "#0f171e"
+			},
+			"package": "com.edgarjonas.movies"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"bundleIdentifier": "com.edgarjonas.movies"
+		}
+	}
 }

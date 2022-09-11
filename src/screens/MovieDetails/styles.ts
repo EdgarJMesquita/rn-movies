@@ -3,58 +3,59 @@ import styled from 'styled-components/native';
 import { theme } from '../../global/theme';
 
 export const Container = styled.View`
-  flex: 1;
-  width: 100%;
+	flex: 1;
+	width: 100%;
 `;
 
 export const Scroll = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    padding: 20,
-  },
+	contentContainerStyle: {
+		padding: 20,
+		paddingBottom: 50,
+	},
 } as ScrollViewProps)`
-  flex: 1;
-  width: 100%;
+	flex: 1;
+	width: 100%;
 `;
 
 export const Poster = styled.Image.attrs({
-  resizeMethod: 'resize',
-  resizeMode: 'cover',
+	resizeMethod: 'resize',
+	resizeMode: 'cover',
 } as ImageProps)`
-  width: 100%;
-  height: 450px;
-  border-radius: 15px;
+	width: 100%;
+	height: 450px;
+	border-radius: 15px;
 `;
 
 export const Title = styled.Text`
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-  margin: 15px 0;
-  color: ${theme.colors.title};
-  font-family: ${theme.fonts.bold};
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	margin: 15px 0;
+	color: ${theme.colors.title};
+	font-family: ${theme.fonts.bold};
 `;
 
 export const Description = styled.Text`
-  font-family: ${theme.fonts.regular};
-  font-size: 16px;
-  color: ${theme.colors.text};
-  text-align: center;
-  margin-bottom: 10px;
+	font-family: ${theme.fonts.regular};
+	font-size: 16px;
+	color: ${theme.colors.text};
+	text-align: center;
+	margin-bottom: 10px;
 `;
 
 export const Section = styled.Text`
-  width: 100%;
+	width: 100%;
 
-  margin: 5px 0;
+	margin: 5px 0;
 `;
 
 export const Label = styled.Text`
-  font-family: ${theme.fonts.semibold};
-  color: ${theme.colors.text};
+	font-family: ${theme.fonts.semibold};
+	color: ${theme.colors.text};
 `;
 
 export const Text = styled.Text`
-  font-family: ${theme.fonts.regular};
-  color: ${theme.colors.text};
-  text-transform: capitalize;
+	font-family: ${theme.fonts.regular};
+	color: ${theme.colors.text};
+	text-transform: capitalize;
 `;

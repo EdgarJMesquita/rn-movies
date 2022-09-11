@@ -6,36 +6,36 @@ import { Loading } from '../Loading';
 import { Container, LoadingContainer, Title } from './styles';
 
 type Props = {
-  title: string;
-  category: Category;
+	title: string;
+	category: Category;
 };
 
 export function Section({ title, category }: Props) {
-  const state = useAppSelector((state) => state[category]);
-  const dispatch = useAppDispatch();
+	const state = useAppSelector((state) => state[category]);
+	const dispatch = useAppDispatch();
 
-  return (
-    <Container>
-      <Title testID="title">{title}</Title>
-      <FlatList
-        testID="movies"
-        data={state?.movies}
-        keyExtractor={(_, index) => index.toString()}
-        contentContainerStyle={{ padding: 20 }}
-        onEndReachedThreshold={0.1}
-        showsHorizontalScrollIndicator={false}
-        fadingEdgeLength={100}
-        onEndReached={() => dispatch(load_more(category))}
-        renderItem={({ item }) => <Card data={item} />}
-        horizontal
-        ListFooterComponent={
-          state?.loading ? (
-            <LoadingContainer>
-              <Loading style={{ marginBottom: 10 }} />
-            </LoadingContainer>
-          ) : null
-        }
-      />
-    </Container>
-  );
+	return (
+		<Container>
+			<Title testID="title">{title}</Title>
+			<FlatList
+				testID="movies"
+				data={state?.movies}
+				keyExtractor={(_, index) => index.toString()}
+				contentContainerStyle={{ padding: 20 }}
+				onEndReachedThreshold={0.1}
+				showsHorizontalScrollIndicator={false}
+				fadingEdgeLength={100}
+				onEndReached={() => dispatch(load_more(category))}
+				renderItem={({ item }) => <Card data={item} />}
+				horizontal
+				ListFooterComponent={
+					state?.loading ? (
+						<LoadingContainer>
+							<Loading style={{ marginBottom: 10 }} />
+						</LoadingContainer>
+					) : null
+				}
+			/>
+		</Container>
+	);
 }

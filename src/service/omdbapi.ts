@@ -1,7 +1,7 @@
-import axios from 'axios';
-import env from '../../env.json';
+import axios from "axios";
+import env from "../../env.json";
 
-const baseURL = 'http://www.omdbapi.com/';
+const baseURL = "http://www.omdbapi.com/";
 
 export const omdbapi = axios.create({ baseURL });
 
