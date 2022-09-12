@@ -1,19 +1,19 @@
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback, useRef, useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { TextInput } from 'react-native';
 import useSWR from 'swr';
 import { Background } from '../../components/Background';
+import { Loading } from '../../components/Loading';
 import { Result } from '../../components/Result';
+import { SearchFilter } from '../../components/SearchFilter';
 import { fetcher } from '../../service/traktapi';
 import {
-	Button,
-	Buttons,
 	Container,
 	Input,
+	LoadingContainer,
 	Results,
 	SearchBar,
 	SearchBarIcon,
-	Title,
 } from './styles';
 
 export function Search() {
@@ -29,21 +29,14 @@ export function Search() {
 		useCallback(() => {
 			if (!input.current) return;
 			input.current.focus();
-			return () => input.current.blur();
+			return input.current.blur;
 		}, [])
 	);
 
 	return (
 		<Background>
 			<Container>
-				<Buttons>
-					<Button selected={type === 'movie'} onPress={() => setType('movie')}>
-						<Title>Filmes</Title>
-					</Button>
-					<Button selected={type === 'show'} onPress={() => setType('show')}>
-						<Title>Séries</Title>
-					</Button>
-				</Buttons>
+				<SearchFilter type={type} setType={setType} />
 				<SearchBar>
 					<SearchBarIcon />
 					<Input ref={input} onChangeText={setQuery} />
@@ -53,6 +46,11 @@ export function Search() {
 					keyExtractor={(_, index) => String(index)}
 					renderItem={({ item }) => <Result data={item} />}
 					keyboardShouldPersistTaps="handled"
+					ListEmptyComponent={
+						<LoadingContainer>
+							<Loading size={30} />
+						</LoadingContainer>
+					}
 				/>
 			</Container>
 		</Background>

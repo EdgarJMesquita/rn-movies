@@ -13,8 +13,12 @@ import { AppRoutes } from './app.routes';
 import { WatchedList } from '../screens/WatchedList';
 import { ToWatchList } from '../screens/ToWatchList';
 import { Search } from '../screens/Search';
+import { Profile } from '../screens/Profile';
+import { HeaderDetails } from '../components/HeaderDetails';
+import { MovieDetails } from '../screens/MovieDetails';
+import { MoviesList } from '../screens/MoviesList';
 
-const { Navigator, Screen } = createBottomTabNavigator();
+const { Navigator, Screen, Group } = createBottomTabNavigator();
 
 export function TabRoutes() {
 	const { height, width } = Dimensions.get('window');
@@ -39,12 +43,14 @@ export function TabRoutes() {
 		>
 			<Screen
 				name="Home"
-				component={AppRoutes}
+				component={MoviesList}
 				options={{
 					tabBarIcon: ({ color }) => (
 						<Entypo name="home" size={24} color={color} />
 					),
 					tabBarLabel: ({ color }) => <Label color={color}>Home</Label>,
+					headerShown: true,
+					header: () => <Header />,
 				}}
 			/>
 			<Screen
@@ -93,6 +99,26 @@ export function TabRoutes() {
 					header: () => <Header />,
 				}}
 			/>
+
+			<Group
+				screenOptions={{
+					headerShown: true,
+					header: ({ navigation, options }) => (
+						<HeaderDetails
+							onGoBackPress={navigation.goBack}
+							title={options.title}
+						/>
+					),
+					tabBarItemStyle: {
+						display: 'none',
+					},
+					tabBarIcon: null,
+					tabBarShowLabel: false,
+				}}
+			>
+				<Screen name="Profile" component={Profile} />
+				<Screen name="MovieDetails" component={MovieDetails} />
+			</Group>
 		</Navigator>
 	);
 }

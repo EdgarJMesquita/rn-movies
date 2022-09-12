@@ -117,3 +117,6 @@ dist/
 
 env.json
 env1.json
+
+android/app/google-services.json
+google-services.json

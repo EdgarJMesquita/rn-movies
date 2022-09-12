@@ -15,11 +15,13 @@
 				"foregroundImage": "./assets/icon.png",
 				"backgroundColor": "#0f171e"
 			},
-			"package": "com.edgarjonas.movies"
+			"package": "com.edgarjonas.movies",
+			"googleServicesFile": "./google-services.json"
 		},
 		"assetBundlePatterns": ["**/*"],
 		"ios": {
 			"bundleIdentifier": "com.edgarjonas.movies"
-		}
+		},
+		"plugins": ["@react-native-google-signin/google-signin"]
 	}
 }

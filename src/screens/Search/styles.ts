@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import { theme } from '../../global/theme';
 import { Feather } from '@expo/vector-icons';
+import { Dimensions } from 'react-native';
 
 type Props = {
 	selected: boolean;
@@ -11,36 +12,6 @@ export const Container = styled.View`
 	width: 100%;
 
 	padding: 0 10px 0;
-`;
-
-export const Buttons = styled.View`
-	flex-direction: row;
-	margin-bottom: 15px;
-
-	justify-content: space-between;
-`;
-
-export const Button = styled.TouchableOpacity<Props>`
-	width: 49%;
-
-	height: 40px;
-
-	padding: 0 15px;
-
-	flex-direction: row;
-
-	align-items: center;
-
-	background-color: ${({ selected }) =>
-		selected ? theme.colors.primary : 'transparent'};
-
-	border-radius: 10px;
-
-	margin-top: 15px;
-
-	border-width: 2px;
-	border-color: ${({ selected }) =>
-		selected ? theme.colors.primary : theme.colors.text};
 `;
 
 export const Title = styled.Text<Props>`
@@ -102,4 +73,10 @@ export const Results = styled.FlatList.attrs({
 	width: 100%;
 	background-color: ${theme.colors.header};
 	margin-top: -7px;
+`;
+
+export const LoadingContainer = styled.View`
+	justify-content: center;
+	align-items: center;
+	height: ${Dimensions.get('screen').height - 450};
 `;

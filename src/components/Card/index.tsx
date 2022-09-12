@@ -19,7 +19,7 @@ export function Card({ data }: Props) {
 	return (
 		<Button
 			onPress={() => navigation.navigate('MovieDetails', { data })}
-			testID='card'
+			testID="card"
 		>
 			{!omdb && (
 				<LoadingContainer>
@@ -33,8 +33,8 @@ export function Card({ data }: Props) {
 						width: '100%',
 						height: 225,
 					}}
-					resizeMode='cover'
-					testID='image'
+					resizeMode="cover"
+					testID="image"
 				/>
 			)}
 		</Button>

@@ -19,6 +19,7 @@ declare global {
 			MovieDetails: { data: MoviePopular };
 			Favorites: undefined;
 			Search: undefined;
+			Profile: undefined;
 		}
 	}
 }
